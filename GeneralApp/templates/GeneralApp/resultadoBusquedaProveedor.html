@@ -1,0 +1,34 @@
+{% extends "GeneralApp/padre.html" %}
+
+{% load static %}
+{% block contenidoVariable %}
+<h1 style="color: yellow">Pagina proveedor busqueda</h1>
+<h1 class="text-primary mb-4">Trabaja con nosotros</h1>
+<h1 class="text-white display-3 mb-5">Alcance economico a nivel nacional</h1>
+<div class="mx-auto" style="width: 100%; max-width: 600px;">
+</div>
+{% endblock %}
+
+{% block contenidoForms %}
+<h1>Resultados de la busqueda "{{proveedor}}"</h1>
+{% if proveedor%}
+<ul>
+
+    {% for usuarios in buscar %}
+    <li>Nombre: {{usuarios.nombreCompania}}</li> 
+    <li>NIT: {{usuarios.nit}}</li>
+    <li>Direccion: {{usuarios.direccion}}</li>
+    <li>Telefono: {{usuarios.telefono}}</li> 
+    <li>Servicio: {{usuarios.servico}}</li>
+    <br>
+ 
+
+ 
+
+    {% endfor %}
+</ul>
+{% endif %}
+<h5>si tienes algun problema para encontrar lo que buscas por favor intentalo de nuevo</h5>
+<h5>Intenta con el nombre tal cual fue registrado sin omitir ninguna letra</h5>
+<a href="{% url 'busquedaProveedor' %}"> Volver a buscar</a>
+{% endblock %}

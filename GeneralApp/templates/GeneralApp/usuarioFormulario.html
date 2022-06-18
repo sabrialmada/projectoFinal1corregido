@@ -1,0 +1,19 @@
+{% extends "GeneralApp/padre.html" %}
+
+{% load static %}
+{% block contenidoVariable %}
+<h1 style="color: yellow">Pagina usuarios registro</h1>
+<h1 class="text-primary mb-4">Pide asistencia en tu viaje</h1>
+<h1 class="text-white display-3 mb-5">Prestámos servicios en 50 estados</h1>
+<div class="mx-auto" style="width: 100%; max-width: 600px;">
+</div>
+{% endblock %}
+
+{% block contenidoForms %}
+<form action="{% url 'usuarioFormulario' %}" method="POST"> {% csrf_token %}
+    <h2>Ingrese los datos</h2>
+    <table>
+        {{miFormulario.as_table}}
+    </table>
+    <input type="submit" value="Registrar">
+{% endblock %}
